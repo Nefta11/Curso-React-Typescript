@@ -22,6 +22,4 @@ const ObjectLiterals = () => {
   )
 }
 
-
-
 export default ObjectLiterals
