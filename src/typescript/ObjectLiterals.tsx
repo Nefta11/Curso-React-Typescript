@@ -1,23 +1,39 @@
 
-interface person {
-fullName:string,
-age:number;
-lastName: string;
+interface Person {
+  firstName: string,
+  lastName: string;
+  age: number;
+  isAlive?:boolean;
+  address: Address;
+
 }
+interface Address {
+  country: string;
+  houseNo: number
+}
+
+
+
+
 
 const ObjectLiterals = () => {
 
-  const person = {
-    fullName: 'Neftali Arturo Hernandez',
+  const person: Person = {
     age: 24,
-   // addres:{
-     // country:'México',
-      //houseNo:234
-    //}
+    firstName: "Neftali",
+    lastName: "Hernández",
+    isAlive: undefined,
+    address: {
+      country: "México",
+      houseNo: 22
+    }
   }
   return (
     <>
       <h3>Objetos Literales</h3>
+      <pre>      
+        {JSON.stringify(person, null, 2)}
+      </pre>
     </>
   )
 }
