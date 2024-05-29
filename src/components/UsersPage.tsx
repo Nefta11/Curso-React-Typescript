@@ -7,8 +7,9 @@ const UsersPage = () => {
 
         axios.get('https://reqres.in/api/users?page=2')
         .then( resp => console.log(resp) );
-        
 
+
+        
        /* fetch('https://reqres.in/api/users?page=2')
             .then(resp => resp.json())
             .then( data => console.log(data));
