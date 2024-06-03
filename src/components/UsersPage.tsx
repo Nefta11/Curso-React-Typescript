@@ -7,8 +7,15 @@ import { ReqResUserListResponse } from '../interfaces/reqres.interface';
 
 const loadUsers = async ()  =>{
 
-    axios.get<ReqResUserListResponse>('https://reqres.in/api/users?page=2')
-    .then( resp => console.log(resp.data.data[0]) );
+    try {
+        const {data} = await  axios.get<ReqResUserListResponse>('https://reqres.in/api/users?+');
+        data.
+
+
+    } catch (error) {
+        console.log(error);
+        return [];
+    }
 
 }
 
