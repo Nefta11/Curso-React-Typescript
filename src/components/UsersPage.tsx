@@ -9,7 +9,7 @@ const loadUsers = async ()  =>{
 
     try {
         const {data} = await  axios.get<ReqResUserListResponse>('https://reqres.in/api/users?+');
-        data.
+        return data.data;
 
 
     } catch (error) {
@@ -25,6 +25,7 @@ const UsersPage = () => {
 
     useEffect(()=>{
 
+        loadUsers().then( users => console.log ( users))
 
         },[])
 
