@@ -5,10 +5,14 @@ import type { ReqResUserListResponse, User } from '../interfaces/reqres.interfac
 
 
 
-const loadUsers = async (): Promise<User[]>  =>{
+const loadUsers = async (page: number = 1): Promise<User[]>  =>{
 
     try {
-        const {data} = await  axios.get<ReqResUserListResponse>('https://reqres.in/api/users?+');
+        const {data} = await  axios.get<ReqResUserListResponse>('https://reqres.in/api/users?+',{
+        params: {
+            page:page
+        }
+        } );
         return data.data;
 
 
@@ -25,19 +29,20 @@ const UsersPage = () => {
 
 
     const [users, setusers ] = useState<User[]>([])
-
+    const currentPageRef = useRef(1);
 
 
 
     useEffect(()=>{
 
-        loadUsers().then(setusers )
+        loadUsers(currentPageRef.current)
+        .then(setusers )
 
         },[])
 
 
   return (
-    <div>
+    <>
       
     <h3>Usuarios</h3>
 
@@ -63,8 +68,12 @@ const UsersPage = () => {
     </tbody>
     </table>
 
-
+    <div>
+    <button>Prev</button>
+    <button>Next</button>
     </div>
+
+    </>
   )
 }
 
