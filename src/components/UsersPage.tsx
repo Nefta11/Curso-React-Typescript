@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import type { ReqResUserListResponse, User } from '../interfaces/reqres.interface';
 
 
@@ -53,10 +53,12 @@ const UsersPage = () => {
 
 
 
-        const prevPage =() => {
+        const prevPage = async() => {
             if (currentPageRef.current < 1) return;
+
             currentPageRef.current--;
-            loadUsers(currentPageRef.current);
+           const users = await loadUsers(currentPageRef.current);
+           setusers(users);
         }
 
   return (
@@ -87,8 +89,8 @@ const UsersPage = () => {
     </table>
 
     <div>
-    <button>Prev</button>
-    <button>Next</button>
+    <button onClick={prevPage}>Prev</button>
+    <button onClick={nextPage}>Next</button>
     </div>
 
     </>
@@ -104,7 +106,7 @@ user: User;
 
 const UserRow = ({user}: Props) => {
 
-    const {avatar, first_name, last_name, email} = user;
+    const {avatar, first_name, email} = user;
 
   return (
     <tr>
