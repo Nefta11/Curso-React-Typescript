@@ -41,6 +41,24 @@ const UsersPage = () => {
         },[])
 
 
+        const nextPage = async () => {
+            currentPageRef.current++;
+            const users = await loadUsers(currentPageRef.current);
+            if (users.length > 0){
+                setusers (users);
+            }else {
+                currentPageRef.current--;
+            }
+        }
+
+
+
+        const prevPage =() => {
+            if (currentPageRef.current < 1) return;
+            currentPageRef.current--;
+            loadUsers(currentPageRef.current);
+        }
+
   return (
     <>
       
