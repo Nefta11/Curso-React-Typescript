@@ -1,5 +1,6 @@
 import Counter from "./components/Counter"
 import CounterWithHook from "./components/CounterWithHook"
+import FormsPage from "./components/FormsPage"
 import LoginPage from "./components/LoginPage"
 import UsersPage from "./components/UsersPage"
 import { BasicTypes } from "./typescript"
@@ -25,15 +26,15 @@ function App() {
 
 <CounterWithHook/>
 <br />
-  <br />*/}
+  <br />
 
 
 <LoginPage/>
 <br />
 <br />
-
+*/}
 <UsersPage/>
-
+<FormsPage/>
     </main>
   )
 }
