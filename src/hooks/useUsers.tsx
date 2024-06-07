@@ -14,6 +14,7 @@ const loadUsers = async (page: number = 1): Promise<User[]> => {
   }
 };
 
+
 const useUsers = () => {
   const [users, setUsers] = useState<User[]>([]);
   const currentPageRef = useRef(1);
