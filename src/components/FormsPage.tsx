@@ -16,9 +16,7 @@ const FormsPage = () => {
   const onSubmit = (data: FormInputs) => {
     console.log({ data });
   };
-
 console.log(watch('email'));
-
 
   return (
     <>
