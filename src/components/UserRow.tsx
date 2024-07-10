@@ -3,7 +3,7 @@ import { User } from '../interfaces';
 interface Props {
   user: User;
 }
-
+ 
 const UserRow = ({ user }: Props) => {
   const { avatar, first_name, last_name, email } = user;
 
