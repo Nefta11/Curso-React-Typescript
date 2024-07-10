@@ -5,7 +5,7 @@ const CounterWithHook = () => {
     initialValue:5
   });
 
-  return (
+  return (   
     <>
       <h3>Contador: <small>{count}</small></h3>
 
