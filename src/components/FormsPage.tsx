@@ -4,7 +4,7 @@ type FormInputs = {
   email: string;
   password: string;
 };
-
+  
 const FormsPage = () => {
   const { register, handleSubmit, formState, watch } = useForm<FormInputs>({
     defaultValues: {
